@@ -318,6 +318,13 @@
                         </xs:documentation>
                     </xs:annotation>
                 </xs:element>
+                <xs:element name="CraftingTableOnly" type="xs:boolean" default="false"  minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Whether to spawn crafting table near agent starting point in the generated world.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
                 <xs:element name="GenerateFeatures" type="xs:boolean" default="true"  minOccurs="0" maxOccurs="1">
                     <xs:annotation>
                         <xs:documentation>
