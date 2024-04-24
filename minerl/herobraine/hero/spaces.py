@@ -78,6 +78,9 @@ class Tuple(gym.spaces.Tuple, MineRLSpace):
     def unmap(self, x):
         raise NotImplementedError()
 
+    def sample(self, bs=None):
+        return tuple([s.sample(bs) for s in self.spaces])
+
 
 class Box(gym.spaces.Box, MineRLSpace):
     def __init__(self, *args, normalizer_scale="linear", **kwargs):
