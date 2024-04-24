@@ -66,17 +66,20 @@ class MineRLSpace(abc.ABC, gym.Space):
 
 
 class Tuple(gym.spaces.Tuple, MineRLSpace):
-    def no_op(self):
-        raise NotImplementedError()
+    def no_op(self, batch_shape=()):
+        return tuple([s.no_op(batch_shape) for s in self.spaces])
 
     def create_flattened_space(self):
-        raise NotImplementedError()
+        return Box(
+            low=np.concatenate([s.flattened.low for s in self.spaces]),
+            high=np.concatenate([s.flattened.high for s in self.spaces]),
+        )
 
     def flat_map(self, x):
-        raise NotImplementedError()
+        return tuple([s.flat_map(x[i]) for i, s in enumerate(self.spaces)])
 
     def unmap(self, x):
-        raise NotImplementedError()
+        return tuple([s.unmap(x[i]) for i, s in enumerate(self.spaces)])
 
     def sample(self, bs=None):
         return tuple([s.sample(bs) for s in self.spaces])
