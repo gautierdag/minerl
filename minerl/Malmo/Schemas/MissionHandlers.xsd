@@ -9,7 +9,6 @@
            version="0.37">
 
     <xs:include schemaLocation="Types.xsd"/>
-    <xs:include schemaLocation="Mission.xsd"/>
 
     <xs:complexType name="Pos">
         <xs:annotation>
@@ -1601,6 +1600,19 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="SmeltCommand">
+        <xs:annotation>
+            <xs:documentation>
+                A command for simple crafting:
+                "{{{ smelt 1 2 3 PINK}}}"
+                etc.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="smelt"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="SimpleCraftCommand">
         <xs:annotation>
             <xs:documentation>
@@ -1886,6 +1898,30 @@
                             <xs:restriction base="CommandListModifier">
                                 <xs:choice maxOccurs="unbounded">
                                     <xs:element name="command" type="InventoryCommand" minOccurs="0"
+                                                maxOccurs="unbounded"/>
+                                </xs:choice>
+                            </xs:restriction>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SmeltCommands">
+        <xs:annotation>
+            <xs:documentation>
+                When present, the Mod will accept commands that smelt an item from inventory.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="ModifierList" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:restriction base="CommandListModifier">
+                                <xs:choice maxOccurs="unbounded">
+                                    <xs:element name="command" type="SmeltCommand" minOccurs="0"
                                                 maxOccurs="unbounded"/>
                                 </xs:choice>
                             </xs:restriction>

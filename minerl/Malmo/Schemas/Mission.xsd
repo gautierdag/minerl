@@ -602,6 +602,7 @@
             <xs:element ref="AbsoluteMovementCommands" minOccurs="0"/>
             <xs:element ref="DiscreteMovementCommands" minOccurs="0"/>
             <xs:element ref="InventoryCommands" minOccurs="0"/>
+            <xs:element ref="SmeltCommands" minOccurs="0"/>
             <xs:element ref="ChatCommands" minOccurs="0"/>
             <xs:element ref="SimpleCraftCommands" minOccurs="0"/>
             <xs:element ref="NearbyCraftCommands" minOccurs="0"/>
