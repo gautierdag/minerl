@@ -1613,6 +1613,20 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="InventoryResetCommand">
+        <xs:annotation>
+            <xs:documentation>
+                A command for reseting inventory:
+                "inventory_reset {new_inv: ...}"
+                etc.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="inventory_reset"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
     <xs:simpleType name="SimpleCraftCommand">
         <xs:annotation>
             <xs:documentation>
@@ -2089,6 +2103,30 @@
                             <xs:restriction base="CommandListModifier">
                                 <xs:choice maxOccurs="unbounded">
                                     <xs:element name="command" type="ChatCommand" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:choice>
+                            </xs:restriction>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="InventoryResetCommands">
+        <xs:annotation>
+            <xs:documentation>
+                When present, the Mod will accept commands that reset inventory to passed state.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="ModifierList" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:restriction base="CommandListModifier">
+                                <xs:choice maxOccurs="unbounded">
+                                    <xs:element name="command" type="InventoryResetCommand" minOccurs="0" maxOccurs="unbounded"/>
                                 </xs:choice>
                             </xs:restriction>
                         </xs:complexContent>
