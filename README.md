@@ -11,7 +11,10 @@ Python package providing easy to use Gym environments and data access for traini
 
 Curious to see what people have done with MineRL? See [this page where we collect projects using MineRL](https://minerl.readthedocs.io/en/latest/notes/useful-links.html). **Got a project using MineRL (academic or fun hobby project)?** Edit [this file](https://github.com/minerllabs/minerl/blob/dev/docs/source/notes/useful-links.rst), add links to your projects and create a PR!
 
-To get started with MineRL, [check out the docs here](http://minerl.io/docs/)!
+To get started with MineRL, [check out the docs here](https://minerl.readthedocs.io/en/latest/)!
+
+## ⚠️Update regarding MineRL-v0 data on 17th June 2024
+The original data mirrors for MineRL-v0 are down (e.g., original `MineRLObtainDiamond-v0` data). We have uploaded copies of the primary datasets to this Zenodo record so people can find them: https://zenodo.org/records/12659939
 
 ## MineRL Versions
 

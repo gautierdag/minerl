@@ -18,9 +18,9 @@ from distutils.command.build import build
 from setuptools.dist import Distribution
 import shutil
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     markdown = fh.read()
-with open("requirements.txt", "r") as fh:
+with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 
 MALMO_BRANCH = "minerl"
@@ -80,7 +80,6 @@ def unpack_assets():
     else:
         # using default path
         asset_dir = os.path.join(os.path.expanduser('~'), '.gradle', 'caches', 'forge_gradle', 'assets')
-    asset_dir = os.path.join(os.path.expanduser('~'), '.gradle', 'caches', 'forge_gradle', 'assets')
     output_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'minerl', 'MCP-Reborn', 'src', 'main', 'resources')
     index = load_asset_index(os.path.join(asset_dir, 'indexes', '1.16.json'))
     unpack_assets_impl(index, asset_dir, output_dir)
@@ -224,7 +223,7 @@ else:
 
 setuptools.setup(
     name='minerl',
-    version=os.environ.get('MINERL_BUILD_VERSION', '1.0.0'),
+    version=os.environ.get('MINERL_BUILD_VERSION', '1.0.2'),
     description='MineRL environment and data loader for reinforcement learning from human demonstration in Minecraft',
     long_description=markdown,
     long_description_content_type="text/markdown",
